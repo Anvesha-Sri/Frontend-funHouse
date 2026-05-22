@@ -1,0 +1,205 @@
+/*Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+*{                                                
+font-family: "Poppins";
+    padding: 0;
+    margin: 0;  
+    box-sizing: border-box;
+}
+
+body{
+ overflow:hidden;
+}
+
+ .video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+ }
+ .container{
+    position: absolute;
+    background-color: rgb(32, 32, 33);
+    opacity: transparent;
+    width: 600px;
+    bottom:0;
+    right:0;
+    top: 0;
+    padding: 20px;
+    color: white;
+ }
+
+ .container button{
+    position: absolute;
+    right: 0;
+    background-color: cornflowerblue;
+    border: none;
+    top:0;
+    width: 60px;
+    height: 60px;
+    padding:10px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+
+
+ }
+
+ .container button:hover{
+    background-color: deepskyblue;
+ }
+
+ .container input{
+    width: 500px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    background-color: transparent;
+    height: 40px;
+    letter-spacing: 1px;
+    outline: none;
+    color: #fff;
+    padding-left: 0.7em;
+ }
+
+ .weatherMain{
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    display: flex;
+    width: 500px;
+    left:10px;
+ }
+.weatherMain h1{
+    font-size: 120px;
+    font-weight: 500;
+}
+.weatherMain .weatherCity{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 20px;
+    font-size: 60px;
+}
+.weatherCity h3 {
+    font-size: 25px;
+    font-weight: 500;
+
+}
+.weatherCity h4 {
+    font-size: 15px;
+}
+.weatherImg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 50px;
+    align-items: center;
+}
+.weatherImg img{
+    width: 70px;
+    margin-bottom: -10px;
+}
+.weatherInfo hr{
+    width: 100%;
+    height: 1px;
+    background-color: gray;
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+.Other-info{
+   text-align: justify;
+   font-size: 16px;
+   line-height: 2;
+}
+.Other-info span{
+position: absolute;
+right:0;
+margin-right: 20px;
+}
+
+.feels-like{
+   margin-top: 20px;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 1118px) {
+    .container  {
+        width: 400px;
+    }
+}
+@media screen and (max-width: 1030px) 
+{
+    .container {
+        width: 100%;
+        position: relative;
+        padding: 15px;
+    }
+    .container input {
+        width: 100%;
+        font-size: 14px;
+    }
+    .container button {
+        width: 35px;
+        height: 35px;
+    }
+    .weatherMain {
+     width: 100%;
+      left: 0;
+      position: absolute;
+    }
+    
+    .weatherMain h1 {
+        font-size: 60px;
+    }
+    .weatherCity h3 {
+        font-size: 40px;
+    }
+    .weatherCity h4 {
+        font-size: 20px;
+    }
+    .weatherImg img {
+        width: 60px;
+    }
+    .Other-info {
+        font-size: 14px;
+    }
+    .feels-like {
+        font-size: 16px;
+
+    }
+
+}
+@media screen and (max-width: 435px) {    
+    .weatherMain h1 {
+        font-size: 40px;
+    }
+    .weatherCity h3 {
+        font-size: 20px;
+    }
+    .weatherCity h4 {
+        font-size: 10px;
+    }                    
+    .weatherImg img {
+        width: 30px;
+    }
+    .OtherInfo {
+        font-size: 12px;
+    }
+    .feels-like {
+        font-size: 14px;
+
+    }
+
+}
