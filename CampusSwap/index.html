@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusSwap — Student Textbook Exchange</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="campus-shell">
+    <header class="site-header">
+      <a class="brand-lockup" href="#">
+        <span class="brand-mark">▥</span>
+        <span>Campus<span>Swap</span></span>
+      </a>
+      <nav class="desktop-nav">
+        <a class="nav-link active" href="#browse">Browse books</a>
+        <a class="nav-link" href="#how-it-works">How it works</a>
+      </nav>
+      <button class="header-post-button" id="openPost">
+        <span>＋</span> Post a listing
+      </button>
+    </header>
+
+    <section class="hero-section">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="hero-kicker">✦ &nbsp;Built between classes</div>
+          <h1>Find the book.<br><em>Skip the markup.</em></h1>
+          <p class="hero-description">
+            The student-to-student textbook exchange for your campus. Better prices, quick pickups, and one less thing to stress about.
+          </p>
+
+          <div class="hero-search-wrap">
+            <span class="search-icon">⌕</span>
+            <input id="searchInput" type="search" placeholder="Search a title or course code" aria-label="Search listings">
+            <button class="search-clear hidden" id="clearSearch" aria-label="Clear search">×</button>
+            <span class="search-shortcut">⌘ K</span>
+          </div>
+          <p class="search-hint">Try <button data-search="ECON">ECON</button> or <button data-search="Biology">Biology</button></p>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <div class="hero-orbit orbit-one"></div>
+          <div class="hero-orbit orbit-two"></div>
+          <div class="hero-book">
+            <span class="book-sticker">CS</span>
+            <span class="book-title">TEXTBOOK<br>SEASON</span>
+            <span class="book-course">2024 / 25</span>
+          </div>
+          <div class="hero-note note-top">no campus bookstore<br><strong>markup</strong></div>
+          <div class="hero-note note-bottom">keep it<br><strong>in the circle</strong></div>
+          <span class="hero-dot dot-one"></span>
+          <span class="hero-dot dot-two"></span>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat yellow"><strong>248</strong><span>Students listing</span></div>
+        <div class="hero-stat mint"><strong>$63</strong><span>Avg. saved per book</span></div>
+        <div class="hero-stat peach"><strong>1,204</strong><span>Books finding homes</span></div>
+      </div>
+    </section>
+
+    <section class="marketplace-section" id="browse">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">The campus shelf</p>
+          <h2>Books looking for<br><span>their next class.</span></h2>
+        </div>
+        <div class="section-heading-side">
+          <p>Real listings from students<br>around your campus.</p>
+          <button class="mobile-filter-button" id="mobileFilterOpen">☷ Filters</button>
+        </div>
+      </div>
+
+      <div class="marketplace-layout">
+        <aside class="filter-panel" id="filterPanel">
+          <div class="filter-panel-top">
+            <div class="filter-title">⚑ &nbsp;Filter shelf</div>
+            <button class="mobile-filter-close" id="mobileFilterClose">×</button>
+          </div>
+
+          <div class="filter-group">
+            <p class="filter-label">Condition</p>
+            <div class="condition-options">
+              <button class="filter-option selected" data-condition="All"><span class="filter-dot all"></span>Any condition <b>✓</b></button>
+              <button class="filter-option" data-condition="New"><span class="filter-dot new"></span>Like new <b>✓</b></button>
+              <button class="filter-option" data-condition="Good"><span class="filter-dot good"></span>Good shape <b>✓</b></button>
+              <button class="filter-option" data-condition="Fair"><span class="filter-dot fair"></span>Well loved <b>✓</b></button>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <p class="filter-label">Price range</p>
+            <div class="price-options">
+              <button class="price-option selected" data-price="Any price">Any price</button>
+              <button class="price-option" data-price="30">Under $30</button>
+              <button class="price-option" data-price="60">Under $60</button>
+              <button class="price-option" data-price="100">Under $100</button>
+            </div>
+          </div>
+
+          <div class="filter-tip"><span>☷</span><p><strong>Quick tip</strong> Most students save 40–60% buying used.</p></div>
+          <button class="clear-filters hidden" id="clearFilters">Clear all filters</button>
+        </aside>
+
+        <div class="results-area">
+          <div class="results-toolbar">
+            <p id="resultsCount">5 listings</p>
+            <span class="results-sort"><i></i> Fresh on the shelf</span>
+          </div>
+          <div class="listing-grid" id="listingGrid"></div>
+          <div class="state-card hidden" id="emptyState">
+            <div class="empty-doodles"><span></span><span></span><span></span></div>
+            <h3>No books in that stack yet.</h3>
+            <p>Try a different search or be the first student to post one.</p>
+            <div class="empty-actions">
+              <button class="state-button secondary" id="emptyClear">Clear filters</button>
+              <button class="state-button" id="emptyPost">Post a listing</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-section" id="how-it-works">
+      <div class="how-stamp">3<br><span>easy moves</span></div>
+      <div class="how-copy">
+        <p class="eyebrow">No weird marketplace energy</p>
+        <h2>Keep it<br><span>student simple.</span></h2>
+      </div>
+      <div class="how-steps">
+        <div class="how-step"><span>01</span><h3>Search your class</h3><p>Find the exact title or course code before your syllabus tab closes.</p></div>
+        <div class="how-step"><span>02</span><h3>Meet a classmate</h3><p>Message the seller and pick a spot between lectures that works for both of you.</p></div>
+        <div class="how-step"><span>03</span><h3>Keep the savings</h3><p>More money for coffee, printing, or the next thing on your campus list.</p></div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <a class="brand-lockup footer-brand" href="#"><span class="brand-mark">▥</span><span>Campus<span>Swap</span></span></a>
+      <p>Made for the in-between moments.</p>
+      <span class="footer-year">Campus marketplace · 2024</span>
+    </footer>
+
+    <div class="dialog-backdrop hidden" id="postDialog">
+      <section class="listing-dialog" role="dialog" aria-modal="true">
+        <div class="dialog-topline">
+          <div>
+            <p class="eyebrow">Pass it forward</p>
+            <h2>Post a textbook</h2>
+            <p class="dialog-intro">Give your old course notes a second semester.</p>
+          </div>
+          <button class="icon-button" id="closePost">×</button>
+        </div>
+
+        <form id="listingForm" class="listing-form">
+          <label class="field-label">Book title
+            <input class="field-input" name="title" required placeholder="e.g. Organic Chemistry">
+          </label>
+          <div class="form-row">
+            <label class="field-label">Course code
+              <input class="field-input" name="courseCode" required placeholder="CHEM 221">
+            </label>
+            <label class="field-label">Price
+              <div class="price-input-wrap"><span>$</span><input class="field-input price-input" name="price" type="number" min="0" step=".01" required placeholder="42.00"></div>
+            </label>
+          </div>
+          <div class="form-row">
+            <label class="field-label">Condition
+              <select class="field-input field-select" name="condition">
+                <option value="New">Like new</option>
+                <option value="Good" selected>Good shape</option>
+                <option value="Fair">Well loved</option>
+              </select>
+            </label>
+            <label class="field-label">Your email
+              <input class="field-input" name="contact" type="email" required placeholder="you@campus.edu">
+            </label>
+          </div>
+          <div class="form-error hidden" id="formError"></div>
+          <button class="submit-listing-button" type="submit">Post listing <span>→</span></button>
+          <p class="dialog-note">✓ &nbsp; No fees. Just a better deal for someone in your lecture hall.</p>
+        </form>
+      </section>
+    </div>
+
+    <div class="mobile-filter-scrim hidden" id="filterScrim"></div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
